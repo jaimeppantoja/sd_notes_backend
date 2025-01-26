@@ -1,16 +1,15 @@
-# Use a lightweight Java image
-FROM openjdk:17-jdk-slim
+# Use a Java 21 image
+FROM openjdk:21-jdk-slim
 
-# Set the working directory
 WORKDIR /app
 
-# Copy the Maven wrapper files
+# Copy the Maven wrapper and configuration files
 COPY mvnw .
 COPY .mvn .mvn
-
-# Copy the source code and pom.xml
-COPY src ./src
 COPY pom.xml .
+
+# Copy the source code
+COPY src ./src
 
 # Make the Maven wrapper executable
 RUN chmod +x ./mvnw
@@ -18,7 +17,7 @@ RUN chmod +x ./mvnw
 # Build the application
 RUN ./mvnw package -DskipTests
 
-# Expose the port (match Render's dynamic port)
+# Expose the app port
 EXPOSE 8080
 
 # Run the application
