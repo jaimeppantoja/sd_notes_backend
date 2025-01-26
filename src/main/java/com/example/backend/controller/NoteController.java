@@ -13,7 +13,7 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("/api/notes")
-@CrossOrigin(origins = "http://localhost:5173") // Allow requests from your React app
+@CrossOrigin(origins = "https://sd-notes-frontendv1.onrender.com") // Allow requests from your React app
 @RequiredArgsConstructor
 public class NoteController {
     private final NoteService noteService;
