@@ -1,0 +1,9 @@
+# Ignore target directory
+target/
+
+# Ignore H2 database files
+*.mv.db
+*.h2.db
+
+# Ignore Visual Studio Code settings
+.vscode/
