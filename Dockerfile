@@ -14,11 +14,12 @@ COPY src ./src
 # Make the Maven wrapper executable
 RUN chmod +x ./mvnw
 
-# Build the application
-RUN ./mvnw package -DskipTests
+# Run Maven build to generate the JAR file
+RUN ./mvnw clean package -DskipTests
 
 # Expose the app port
 EXPOSE 8080
 
 # Run the application
 CMD ["java", "-jar", "target/*.jar"]
+
